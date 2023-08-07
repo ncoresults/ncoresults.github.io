@@ -27,7 +27,7 @@ function App() {
 
     let foundUser = false;
     data.forEach(obj => {
-      if (obj['USER NAME'] === username.trim() && obj['Password'] === password) {
+      if (obj['USER NAME'].toLowerCase() === username.trim().toLowerCase() && obj['Password'] === password) {
         setIsUser(true);
         setResult(obj);
         foundUser = true;
