@@ -64,7 +64,10 @@ export default function Results(props) {
     a.click();
   };
 
+  const sizeOfWindow = window.innerWidth;
+
     return (
+        sizeOfWindow > 601 ? 
         <TableContainer component={Paper} sx ={{ background: 'rgba(225, 225, 225, 0.9)', boxShadow: '0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)' }}>
             <Table sx={{ minWidth: 700 }} aria-label="spanning table" className='resTable'>
                 <TableHead>
@@ -130,6 +133,116 @@ export default function Results(props) {
                     <TableRow>
                         <TableCell size='small' colSpan={6} style={{ textAlign: 'left', fontWeight: 'bold' }}>
                             (C) Case Study
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {result['Section C']}
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            40
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            Total
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {parseInt(result['Section A']) + parseInt(result['Section B']) + parseInt(result['Section C'])}
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            280
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Percentile
+                        </TableCell>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {result['Percentile']}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Rank
+                        </TableCell>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {result['Rank']}
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Certificate
+                        </TableCell>
+                        <TableCell size='small' colSpan={8} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            <Button size='small' onClick={() => downloadPdf()} variant="contained">Download</Button>
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer> : <TableContainer component={Paper} sx ={{ background: 'rgba(225, 225, 225, 0.9)', boxShadow: '0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24)' }}>
+            <Table aria-label="spanning table" className='resTable'>
+                <TableHead>
+                    <TableRow>
+                        <TableCell size='small' style={{ color: 'blue', fontFamily: 'sans-serif', fontWeight: 'bolder', fontSize: '20px' }} colSpan={16} align='center'>National Commerce Olympiad</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' style={{ fontWeight: 'bold' }} align="left" colSpan={12}>
+                            Name:
+                        </TableCell>
+                        <TableCell size='small' style={{ fontWeight: 'bolder', textDecoration: 'underline' }} align="center">{result.Name}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' style={{ fontWeight: 'bold' }} align="left" colSpan={12}>
+                            Unique ID:
+                        </TableCell>
+                        <TableCell size='small' style={{ fontWeight: 'bolder', textDecoration: 'underline' }} align="center">{result['Password']}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' style={{ fontWeight: 'bold' }} align="left" colSpan={12}>
+                            Category:
+                        </TableCell>
+                        <TableCell size='small' style={{ fontWeight: 'bolder', textDecoration: 'underline' }} align="center">{result.Category}</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                        <TableCell size='small' style={{ fontWeight: 'bolder', color: 'blue', fontSize: '17px' }} colSpan={16} align='center'>SCORECARD</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Section
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Marks Obtained
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            Maximum Marks
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'left', fontWeight: 'bold' }}>
+                            (A) General
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {result['Section A']}
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            120
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'left', fontWeight: 'bold' }}>
+                            (B) Domain
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
+                            {result['Section B']}
+                        </TableCell>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bold' }}>
+                            120
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell size='small' colSpan={6} style={{ textAlign: 'left', fontWeight: 'bold' }}>
+                            (C)&nbsp;Case&nbsp;Study
                         </TableCell>
                         <TableCell size='small' colSpan={6} style={{ textAlign: 'center', fontWeight: 'bolder' }}>
                             {result['Section C']}
