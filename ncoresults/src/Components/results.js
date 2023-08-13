@@ -41,7 +41,7 @@ export default function Results(props) {
     const styleProperties2 = {
         font: font,
         size: 18,
-        color: rgb(0, 0, 0.545), // Text color
+        color: rgb(0.1568,0.2352,0.3843), // Text color
       };
 
     page.drawText(cat, {
